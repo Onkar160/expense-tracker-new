@@ -1,0 +1,22 @@
+.add_button {
+    padding: 10px 25px;
+    border-radius: 15px;
+    border: none;
+    width: 167.65px;
+    height:  38px;
+    color: white;
+    cursor: pointer;
+}
+
+#income {
+    background: linear-gradient(to right, #B5DC52, #89E148);
+}
+
+#expense {
+    background: linear-gradient(to right, #FF9595, #FF4747, #FF3838);
+}
+
+.add_button span {
+    font-size: 16px;
+    font-weight: 600;
+}
