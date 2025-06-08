@@ -2,7 +2,7 @@ import styles from "./button.module.css";
 import Modal from "../../modal/modal";
 import { useState, useEffect } from "react";
 
-export default function Button({ type }) {
+export default function AddButton({ type }) {
   const [isOpen, setOpen] = useState(false);
 
   return (
@@ -16,6 +16,7 @@ export default function Button({ type }) {
   );
 }
 
+//The add income button
 const AddIncomeButton = ({ setOpen, isOpen, type }) => {
   return (
     <>
@@ -31,6 +32,8 @@ const AddIncomeButton = ({ setOpen, isOpen, type }) => {
   );
 };
 
+
+//The add expense button
 const AddExpenseButton = ({ setOpen, isOpen, type }) => {
   return (
     <>

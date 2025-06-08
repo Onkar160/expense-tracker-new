@@ -1,4 +1,5 @@
 import ReactModal from "react-modal";
+import AddIncomeModal from "./Add_Income_modal/AddIncomeModal";
 
 export default function Modal({ isOpen, setOpen, type }) {
   return (
@@ -24,18 +25,19 @@ export default function Modal({ isOpen, setOpen, type }) {
             alighItems: "center"
           },
           content: {
-            backgroundColor: "rgba(255, 255, 255, 0.80)",
-            width: "min-content",
+            backgroundColor: "#EFEFEFD9",
             height: "min-content",
             position: "absolute",
             top: "50%", 
             left: "50%",
             transform: "translate(-50%, -50%)",
-            borderRadius: "15px"
+            borderRadius: "15px",
+            opacity: "0.85",
+            width: "fit-content"
           },
         }}
       >
-        <h1>Hi</h1>
+        {type === "balance" && <AddIncomeModal setOpen={setOpen} />}
       </ReactModal>
     </>
   );

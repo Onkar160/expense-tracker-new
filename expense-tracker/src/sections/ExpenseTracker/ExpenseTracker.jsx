@@ -1,5 +1,5 @@
 import styles from "./ExpenseTracker.module.css";
-import Button from "../../components/buttons/add_button/button";
+import AddButton from "../../components/buttons/add_button/AddButton";
 import { useContext, useEffect, useState } from "react";
 import MyContext from "../../context";
 
@@ -36,7 +36,7 @@ export default function ExpenseTracker() {
                 {/* 1000000000 */}₹{walletBalance}
               </span>
             </p>
-            <Button type="balance" />
+            <AddButton type="balance" />
           </article>
           <article className={styles.article}>
             <p className={styles.headings}>
@@ -51,7 +51,7 @@ export default function ExpenseTracker() {
                 ₹{totalAmount}
               </span>
             </p>
-            <Button type="expense" />
+            <AddButton type="expense" />
           </article>
         </section>
       </section>
