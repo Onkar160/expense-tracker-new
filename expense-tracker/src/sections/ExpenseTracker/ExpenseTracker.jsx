@@ -8,15 +8,14 @@ export default function ExpenseTracker() {
     useContext(MyContext);
   const [totalAmount, setTotalAmount] = useState(0);
 
+  // to update total expenses amount whenever user add expense
   useEffect(() => {
-    if (expenses.length) {
-      let finalAmount = expenses.reduce(
-        (acc, expense) => acc + expense.amount,
-        0
-      );
-      setTotalAmount(finalAmount);
-    }
-  }, []);
+    let finalAmount = expenses.reduce(
+      (acc, expense) => acc + Number(expense.price),
+      0
+    );
+    setTotalAmount(finalAmount);
+  }, [expenses]);
 
   return (
     <>
@@ -36,7 +35,7 @@ export default function ExpenseTracker() {
                 {/* 1000000000 */}₹{walletBalance}
               </span>
             </p>
-            <AddButton type="balance" />
+            <AddButton type="add_balance" />
           </article>
           <article className={styles.article}>
             <p className={styles.headings}>
@@ -51,7 +50,7 @@ export default function ExpenseTracker() {
                 ₹{totalAmount}
               </span>
             </p>
-            <AddButton type="expense" />
+            <AddButton type="add_expense" />
           </article>
         </section>
       </section>

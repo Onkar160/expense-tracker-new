@@ -1,5 +1,6 @@
 import ReactModal from "react-modal";
 import AddIncomeModal from "./Add_Income_modal/AddIncomeModal";
+import AddEditExpense from "./Add_Edit_Expense/AddEditExpense";
 
 export default function Modal({ isOpen, setOpen, type }) {
   return (
@@ -22,22 +23,23 @@ export default function Modal({ isOpen, setOpen, type }) {
             height: "100%",
             display: "flex",
             justifyContent: "center",
-            alighItems: "center"
+            alighItems: "center",
           },
           content: {
             backgroundColor: "#EFEFEFD9",
             height: "min-content",
             position: "absolute",
-            top: "50%", 
+            top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
             borderRadius: "15px",
             opacity: "0.85",
-            width: "fit-content"
+            width: "fit-content",
           },
         }}
       >
-        {type === "balance" && <AddIncomeModal setOpen={setOpen} />}
+        {type === "add_balance" && <AddIncomeModal setOpen={setOpen} />}
+        {type === "add_expense" && <AddEditExpense setOpen={setOpen} />}
       </ReactModal>
     </>
   );

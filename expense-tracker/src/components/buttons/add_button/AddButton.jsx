@@ -7,7 +7,7 @@ export default function AddButton({ type }) {
 
   return (
     <>
-      {type === "balance" ? (
+      {type === "add_balance" ? (
         <AddIncomeButton setOpen={setOpen} isOpen={isOpen} type={type} />
       ) : (
         <AddExpenseButton setOpen={setOpen} isOpen={isOpen} type={type} />
