@@ -19,6 +19,7 @@ export default function AddIncomeModal({ setOpen }) {
   //handling wallet balance on clicking on add amount button
   const handleAddAmount = (e) => {
     //safety check if user is trying to add more than 1000000000 amount printing msg
+    e.preventDefault();
     if (incomeAmount + walletBalance > 1000000000) {
       enqueueSnackbar("Cannot accept amount more than 1000000000", {
         variant: "warning",
@@ -29,7 +30,6 @@ export default function AddIncomeModal({ setOpen }) {
     localStorage.setItem("walletBalance", oldAmount + incomeAmount);
     setWalletBalance((prevAmount) => prevAmount + incomeAmount);
     setOpen(false);
-    e.preventDefault();
   };
 
   //handle cancel button

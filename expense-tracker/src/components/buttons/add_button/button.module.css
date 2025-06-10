@@ -1,9 +1,9 @@
 .add_button {
-    padding: 10px 25px;
+    /* padding: 30px 45px; */
     border-radius: 15px;
     border: none;
-    width: 167.65px;
-    height:  38px;
+    width: 197.65px;
+    height:  44px;
     color: white;
     cursor: pointer;
 }
@@ -17,6 +17,6 @@
 }
 
 .add_button span {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 600;
 }

@@ -17,7 +17,7 @@ export default function AddEditExpense({ type, setOpen }) {
   });
 
   // importing states with context
-  const { walletBalance, setWalletBalance, expenses, setExpenses } =
+  const { walletBalance, setWalletBalance, expenses, setExpenses, categories } =
     useContext(MyContext);
 
   // //For side effects check
@@ -59,7 +59,7 @@ export default function AddEditExpense({ type, setOpen }) {
     };
     const updatedExpenses = [...expenses, newExpense];
 
-    console.log(updatedExpenses);
+    // console.log(updatedExpenses);
     localStorage.setItem("expenses", JSON.stringify(updatedExpenses));
     setExpenses(updatedExpenses);
     const oldWalletBalance = Number(localStorage.getItem("walletBalance"));
@@ -96,9 +96,9 @@ export default function AddEditExpense({ type, setOpen }) {
           <option value="" disabled>
             Select Category
           </option>
-          <option value="Food">Food</option>
-          <option value="Travel">Travel</option>
-          <option value="Entertainment">Entertainment</option>
+          {categories.map((category, index) => (
+            <option value={category} key={`key${index}`}>{category}</option>
+          ))}
         </select>
         <input
           name="date"

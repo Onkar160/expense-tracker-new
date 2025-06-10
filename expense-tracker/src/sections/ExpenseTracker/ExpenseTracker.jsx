@@ -2,6 +2,7 @@ import styles from "./ExpenseTracker.module.css";
 import AddButton from "../../components/buttons/add_button/AddButton";
 import { useContext, useEffect, useState } from "react";
 import MyContext from "../../context";
+import CustomPieChart from "../../components/pie_chart/PieChart";
 
 export default function ExpenseTracker() {
   const { walletBalance, setWalletBalance, expenses, setExpenses } =
@@ -21,13 +22,13 @@ export default function ExpenseTracker() {
     <>
       <h1 className={styles.title}>Expense Tracker</h1>
       <section className={styles.container}>
-        <section className={styles.article_section}>
+        {/* <section className={styles.article_section}> */}
           <article className={styles.article}>
             <p className={styles.headings}>
               Wallet Balance:{" "}
               <span
                 style={{
-                  fontSize: "25px",
+                  fontSize: "26px",
                   color: "#9DFF5B",
                   fontWeight: "700",
                 }}
@@ -42,7 +43,7 @@ export default function ExpenseTracker() {
               Expenses:{" "}
               <span
                 style={{
-                  fontSize: "25px",
+                  fontSize: "26px",
                   color: "#F4BB4A",
                   fontWeight: "700",
                 }}
@@ -52,7 +53,8 @@ export default function ExpenseTracker() {
             </p>
             <AddButton type="add_expense" />
           </article>
-        </section>
+        {/* </section> */}
+        <CustomPieChart expenses={expenses} />
       </section>
     </>
   );
