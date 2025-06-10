@@ -5,9 +5,10 @@ import MyContext from "../../context";
 import CustomPieChart from "../../components/pie_chart/PieChart";
 
 export default function ExpenseTracker() {
-  const { walletBalance, setWalletBalance, expenses, setExpenses } =
+  const { walletBalance, setWalletBalance, expenses, setExpenses, categories } =
     useContext(MyContext);
   const [totalAmount, setTotalAmount] = useState(0);
+  const [categoryMap, setCategoryMap] = useState({});
 
   // to update total expenses amount whenever user add expense
   useEffect(() => {
@@ -17,6 +18,14 @@ export default function ExpenseTracker() {
     );
     setTotalAmount(finalAmount);
   }, [expenses]);
+
+  useEffect(() => {
+    let tempObj = {};
+    categories.forEach(category => {
+      tempObj[category] = 0;
+    })
+    setCategoryMap(tempObj);
+  }, [categories])
 
   return (
     <>
@@ -54,7 +63,7 @@ export default function ExpenseTracker() {
             <AddButton type="add_expense" />
           </article>
         {/* </section> */}
-        <CustomPieChart expenses={expenses} />
+        <CustomPieChart expenses={expenses} categories={categories} categoryMap={categoryMap} />
       </section>
     </>
   );

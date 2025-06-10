@@ -7,8 +7,7 @@ import {
   Legend,
 } from "recharts";
 
-import { useState, useEffect, useContext } from "react";
-import MyContext from "../../context";
+import { useState, useEffect } from "react";
 import randomColor from "randomcolor";
 
 const RADIAN = Math.PI / 180;
@@ -53,36 +52,31 @@ const generateRandomColor = (count) => {
   return colors;
 };
 
-export default function PChart({ expenses }) {
-  const { categories } = useContext(MyContext);
+export default function PChart({ expenses, categories, categoryMap }) {
   const [chartData, setChartData] = useState([]);
   const [COLORS, setColors] = useState([]);
 
   useEffect(() => {
     let colors = generateRandomColor(categories.length);
     setColors(colors);
-    const categoriesMap = categories.map((category) => ({
-      name: category,
-      value: 0,
-    }));
-    setChartData(categoriesMap);
   }, [categories]);
 
   useEffect(() => {
-    const tempData = categories.map((category) => {
-      let obj = { name: category, value: 0 };
-      let totalAmount = expenses.reduce((acc, expense) => {
-        if (expense.category === category) {
-          return acc + Number(expense.price);
-        }
-        return acc;
-      }, 0);
-      obj.value = totalAmount;
-      return obj;
+    let tempObj = { ...categoryMap };
+    // console.log(tempObj);
+    expenses.forEach(({ category, price }) => {
+      if (tempObj.hasOwnProperty(category)) {
+        tempObj[category] += Number(price);
+      }
     });
-    // console.log(tempData);
-    setChartData(tempData);
-  }, [expenses, categories]);
+    // console.log(tempObj);
+    const dataArray = Object.entries(tempObj).map(([name, value]) => ({
+      name,
+      value,
+    }));
+    // console.log(dataArray)
+    setChartData(dataArray);
+  }, [expenses, categoryMap]);
 
   return (
     <div
@@ -132,7 +126,7 @@ export default function PChart({ expenses }) {
                   display: "flex",
                   justifyContent: "center",
                   flexWrap: "wrap",
-                  gap: "8px", // ⬅ control spacing between items here
+                  gap: "8px", 
                 }}
               >
                 {payload.map((entry, index) => (
@@ -150,7 +144,7 @@ export default function PChart({ expenses }) {
                         height: 12,
                         backgroundColor: entry.color,
                         borderRadius: 2,
-                        marginRight: 6, // space between icon and label
+                        marginRight: 6,
                       }}
                     />
                     <span>{entry.value}</span>

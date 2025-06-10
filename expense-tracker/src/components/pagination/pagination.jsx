@@ -7,26 +7,32 @@ import DeleteButton from "../buttons/delete_button/DeleteButton";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
 
 export default function Pagination({ expenses, setExpenses }) {
-  const [currentPage, setCurrentPage] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 3;
-  const totalPages = Math.ceil(expenses.length / itemsPerPage);
+  const [totalPages, setTotalPages] = useState(0);
   const [slicedExpenses, setSlicedExpenses] = useState([]);
 
-  const handlePrevButton = (e) => {
-    console.log(e);
+  const handlePrevButton = () => {
     setCurrentPage((prevInd) => prevInd - 1);
   };
 
-  const handleNextButton = (e) => {
-    console.log(e);
+  const handleNextButton = () => {
     setCurrentPage((prevInd) => prevInd + 1);
   };
 
   useEffect(() => {
-    const startIndex = currentPage * itemsPerPage;
-    const endIndex = startIndex + itemsPerPage;
-    setSlicedExpenses(expenses.slice(startIndex, endIndex));
+    setTotalPages(Math.ceil(expenses.length / itemsPerPage));
+    const startIndex = (currentPage - 1) * itemsPerPage; //0, 3
+    const endIndex = startIndex + itemsPerPage; //3, 6
+    setSlicedExpenses(expenses.slice(startIndex, endIndex)); // 0 1 2, 3, 4, 5
   }, [currentPage, expenses]);
+
+  useEffect(() => {
+    if(slicedExpenses.length === 0 && currentPage > 1) {
+        setCurrentPage(currentPage - 1);
+    }
+  }, [slicedExpenses])
+  
 
   return (
     <div className={styles.container}>
@@ -79,7 +85,8 @@ export default function Pagination({ expenses, setExpenses }) {
             boxShadow: "0px 4px 4px 0px rgba(0, 0, 0, 0.25)",
           }}
           type="button"
-          className={`${currentPage + 1 == 1 && styles.button_hide}`}
+        //   className={`${currentPage + 1 == 1 && styles.button_hide}`}
+          disabled={currentPage == 1}
           onClick={handlePrevButton}
         >
           <ArrowLeftIcon />
@@ -95,7 +102,7 @@ export default function Pagination({ expenses, setExpenses }) {
           }}
         >
           <span style={{ fontSize: "25px", color: "white" }}>
-            {currentPage + 1}
+            {currentPage}
           </span>
         </button>
         <button
@@ -107,7 +114,8 @@ export default function Pagination({ expenses, setExpenses }) {
           }}
           type="button"
           name="nextButton"
-          className={`${currentPage + 1 == totalPages && styles.button_hide}`}
+        //   className={`${currentPage + 1 == totalPages && styles.button_hide}`}
+          disabled={currentPage == totalPages}
           onClick={handleNextButton}
         >
           <ArrowRightIcon />
