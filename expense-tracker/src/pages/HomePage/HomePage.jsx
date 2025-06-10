@@ -2,6 +2,7 @@ import styles from "./HomePage.module.css";
 import ExpenseTracker from "../../sections/ExpenseTracker/ExpenseTracker";
 import { useState, useEffect } from "react";
 import MyContext from "../../context";
+import RecentTransactions from "../../sections/RecentTransactions/RecentTransactions";
 
 export default function HomePage() {
   // walletBalance and expenses state
@@ -34,6 +35,9 @@ export default function HomePage() {
     >
       <div className={styles.container}>
         <ExpenseTracker />
+        <div className={styles.section_wrapper}>
+          <RecentTransactions />
+        </div>
       </div>
     </MyContext.Provider>
   );

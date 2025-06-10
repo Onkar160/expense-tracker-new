@@ -3,6 +3,7 @@ import styles from "./AddEditExpense.module.css";
 import { useState, useEffect, useContext } from "react";
 import moment from "moment";
 import { useSnackbar } from "notistack";
+import { v4 as uuidv4 } from 'uuid';
 
 export default function AddEditExpense({ type, setOpen }) {
   //snackbar
@@ -55,7 +56,7 @@ export default function AddEditExpense({ type, setOpen }) {
     const newExpense = {
       ...formData,
       date: formattedDate,
-      id: expenses.length,
+      id: uuidv4(),
     };
     const updatedExpenses = [...expenses, newExpense];
 

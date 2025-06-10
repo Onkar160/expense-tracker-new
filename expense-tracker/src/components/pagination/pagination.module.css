@@ -1,0 +1,69 @@
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 0 0 0 20px;
+    border-radius: 15px;
+    background-color: white;
+    color: black;
+    padding: 35px 35px 30px 35px;
+}
+
+.transaction_wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.transaction {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 0.5px solid;
+    padding-bottom: 10px;
+    padding-top: 20px;
+}
+
+.expense_icon {
+    display: flex;
+    align-items: start;
+    gap: 20px;
+}
+
+.expense_name {
+    display: flex;
+    flex-direction: column;
+}
+
+.expense_name * {
+    margin: 0px;
+}
+
+.expense_price {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.delete_edit_wrapper {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.button_wrapper {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-top: 35px;
+    align-self: center;
+}
+
+.display_none {
+    display: none;
+}
+
+.button_hide {
+    display: none;
+}
