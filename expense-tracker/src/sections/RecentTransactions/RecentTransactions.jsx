@@ -1,5 +1,5 @@
 import styles from "./RecentTransactions.module.css";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import MyContext from "../../context";
 import Pagination from "../../components/pagination/pagination";
 

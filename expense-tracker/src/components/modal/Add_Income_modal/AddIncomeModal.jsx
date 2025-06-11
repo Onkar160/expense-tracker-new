@@ -1,5 +1,5 @@
 import styles from "./AddIncomeModal.module.css";
-import { useState, useEffect, useContext } from "react";
+import { useState, useContext } from "react";
 import { useSnackbar } from "notistack";
 import MyContext from "../../../context";
 

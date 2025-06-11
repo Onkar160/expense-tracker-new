@@ -18,7 +18,6 @@ const renderLabel = ({
   innerRadius,
   outerRadius,
   percent,
-  index,
 }) => {
   const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
   const RADIAN = Math.PI / 180;
