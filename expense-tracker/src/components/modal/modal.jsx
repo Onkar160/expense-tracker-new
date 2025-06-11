@@ -2,7 +2,8 @@ import ReactModal from "react-modal";
 import AddIncomeModal from "./Add_Income_modal/AddIncomeModal";
 import AddEditExpense from "./Add_Edit_Expense/AddEditExpense";
 
-export default function Modal({ isOpen, setOpen, type }) {
+export default function Modal({ isOpen, setOpen, type, id }) {
+  // console.log(type);
   return (
     <>
       <ReactModal
@@ -40,6 +41,7 @@ export default function Modal({ isOpen, setOpen, type }) {
       >
         {type === "add_balance" && <AddIncomeModal setOpen={setOpen} />}
         {type === "add_expense" && <AddEditExpense setOpen={setOpen} />}
+        {type === "edit_expense" && id && <AddEditExpense setOpen={setOpen} id={id} type={type} />}
       </ReactModal>
     </>
   );

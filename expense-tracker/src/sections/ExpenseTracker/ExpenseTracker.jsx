@@ -5,7 +5,7 @@ import MyContext from "../../context";
 import CustomPieChart from "../../components/pie_chart/PieChart";
 
 export default function ExpenseTracker() {
-  const { walletBalance, setWalletBalance, expenses, setExpenses, categories } =
+  const { walletBalance, expenses, categories } =
     useContext(MyContext);
   const [totalAmount, setTotalAmount] = useState(0);
   const [categoryMap, setCategoryMap] = useState({});

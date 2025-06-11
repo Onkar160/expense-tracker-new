@@ -5,8 +5,9 @@ import { LuCarTaxiFront } from "react-icons/lu";
 import { useState, useEffect } from "react";
 import DeleteButton from "../buttons/delete_button/DeleteButton";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa6";
+import EditButton from "../buttons/edit_button/EditButton";
 
-export default function Pagination({ expenses, setExpenses }) {
+export default function Pagination({ expenses }) {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 3;
   const [totalPages, setTotalPages] = useState(0);
@@ -66,6 +67,7 @@ export default function Pagination({ expenses, setExpenses }) {
                 </span>
                 <div className={styles.delete_edit_wrapper}>
                   <DeleteButton id={expense.id} />
+                  <EditButton id={expense.id} />
                 </div>
               </div>
             </div>
