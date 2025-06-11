@@ -1,7 +1,22 @@
 .container {
     padding: 0px 20px;
+    height: 100%;
+    width: 100%;
 }
 
 .section_wrapper {
     margin-top: 40px;
+    display: flex;
+    height: 330px;
+    width: 100%;
+    gap: 20px;
+    flex-wrap: wrap;
 }
+
+@media (min-width: 1174px) {
+    .section_wrapper {
+        flex-wrap: nowrap;
+    }
+}
+
+

@@ -1,11 +1,11 @@
 .container {
-    height: 100%;
-    width: 60%;
+    height: fit-content;
+    width: 100%;
+    min-width: 60%;
 }
 
 .title {
     font-style: italic;
-    margin-top: 15px;
     margin-bottom: 10px;
 }
 

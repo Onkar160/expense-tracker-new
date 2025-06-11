@@ -95,8 +95,8 @@ export default function Pagination({ expenses }) {
         </button>
         <button
           style={{
-            width: "43px",
-            height: "43px",
+            width: "44px",
+            height: "44px",
             borderRadius: "8px",
             backgroundColor: "#43967B",
             border: "none",
@@ -133,9 +133,11 @@ const PizzaIcon = () => {
       style={{
         backgroundColor: "#D9D9D9",
         padding: "10px",
-        fontSize: "30px",
+        fontSize: "50px",
         borderRadius: "50%",
         transform: "rotate(180deg)",
+        minWidth: "50px",
+        minheight: "50px"
       }}
     />
   );
@@ -147,8 +149,10 @@ const MovieIcon = () => {
       style={{
         backgroundColor: "#D9D9D9",
         padding: "10px",
-        fontSize: "30px",
+        fontSize: "50px",
         borderRadius: "50%",
+        minWidth: "50px",
+        minheight: "50px"
       }}
     />
   );
@@ -160,8 +164,10 @@ const CarIcon = () => {
       style={{
         backgroundColor: "#D9D9D9",
         padding: "10px",
-        fontSize: "30px",
+        fontSize: "50px",
         borderRadius: "50%",
+        minWidth: "50px",
+        minheight: "50px"
       }}
     />
   );
@@ -173,9 +179,9 @@ const ArrowLeftIcon = () => {
       style={{
         padding: "8px",
         fontSize: "16px",
-        width: "20px",
-        height: "20px",
-        paddingTop: "12px",
+        width: "40px",
+        height: "40px",
+        paddingTop: "13px",
       }}
       name="prevIcon"
     />
@@ -188,9 +194,9 @@ const ArrowRightIcon = () => {
       style={{
         padding: "8px",
         fontSize: "16px",
-        width: "20px",
-        height: "20px",
-        paddingTop: "12px",
+        width: "40px",
+        height: "40px",
+        paddingTop: "13px",
       }}
       name="nextIcon"
     />
